@@ -14,11 +14,7 @@ function loadPageRank()
 				pageRankContainer.innerHTML = "Page Rank for "+ hostname +" is " +pageRankXhr.response;
 		};
 		pageRankXhr.send();
-	});
-
-	/* player */
-	//show_player(600, 190, "ramkumarmk", "4f9d50655ff00f9b575a98d60c7a6029");
-		
+	});		
 }
 
 document.addEventListener("DOMContentLoaded", loadPageRank, false);

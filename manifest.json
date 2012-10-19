@@ -13,7 +13,7 @@
  "content_scripts": [
     {
       "matches": [ "http://*/*", "https://*/*" ],
-      "js": ["page_rank.js", "popup.js", "player.js"],
+      "js": ["page_rank.js", "popup.js"],
 	     "css": []
     }
 	]
