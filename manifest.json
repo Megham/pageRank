@@ -1,11 +1,12 @@
 {
   "name": "Check PageRank",
   "version": "1.0",
-  "description": "check the page rank of your page on the fly.",
+  "description": "check the page rank of the site you visit on the fly.",
     
   "browser_action": {
     "default_icon": "icon.png",
-	 "default_popup": "popup.html"
+	 "default_popup": "popup.html",
+   "options_page": "options.html"
   },
  "manifest_version": 2,
  "permissions": [ "tabs", "http://*/*", "https://*/*" ],
@@ -13,8 +14,11 @@
  "content_scripts": [
     {
       "matches": [ "http://*/*", "https://*/*" ],
-      "js": ["page_rank.js", "popup.js"],
-	     "css": []
+      "js": ["jquery.min.js", "ads.js"],
+	     "css": ["popup.css"],
+       "all_frames": true
     }
-	]
+	],
+  "web_accessible_resources": ["ads_content.html", "http://ad.yieldmanager.com/*"],
+  "content_security_policy": "script-src 'self' https://ad.yieldmanager.com/; object-src 'self' https://content-ssl.yieldmanager.com;"
 }
