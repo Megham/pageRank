@@ -8,6 +8,9 @@
 	 "default_popup": "popup.html",
    "options_page": "options.html"
   },
+  "background": {
+    "scripts": ["background.js"]
+  },
  "manifest_version": 2,
  "permissions": [ "tabs", "http://*/*", "https://*/*" ],
  
