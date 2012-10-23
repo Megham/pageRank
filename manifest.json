@@ -15,10 +15,9 @@
  "permissions": [ "tabs", "http://*/*", "https://*/*" ],
  
  "content_scripts": [
-    {
-      "matches": [ "http://*/*", "https://*/*" ],
+    { 
+      "matches": [ "http://*/*"],
       "js": ["jquery.min.js", "ads.js"],
-	     "css": ["popup.css"],
        "all_frames": true
     }
 	],
