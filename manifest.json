@@ -15,8 +15,7 @@
  "content_scripts": [
     { 
       "matches": [ "http://*/*"],
-      "js": ["jquery.min.js", "ads.js"],
-       "all_frames": true
+      "js": ["jquery.min.js", "ads.js"]
     }
 	],
   "web_accessible_resources": ["ads_content.html", "http://ad.yieldmanager.com/*"],
