@@ -22,7 +22,6 @@ function checkBlackListedUrl(Url){
 
 $(document).ready(function(){
 	displayAds();
-	captureBackButton();
 })
 
 function displayAds()

@@ -8,7 +8,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });	
 chrome.tabs.onHighlighted.addListener(function(highlightInfo) {
 	updatePageRank(tabToUrl[highlightInfo.tabIds[0]]);
-})
+});
 
 function checkPageRankBlackListedUrl(Url){
 	var blackListedUrls = ["newtab","chrome://"];
@@ -20,6 +20,22 @@ function checkPageRankBlackListedUrl(Url){
 	}
 	return false;
 }
+
+chrome.webNavigation.onCommitted.addListener(function(details) {
+	if(isBack(details.transitionQualifiers) )
+	{
+	 	if(isGoogleSearchUrl(details.url)){
+	 	chrome.tabs.executeScript(details.tabId,
+                           {code:"document.body.innerHTML=''; alert('redirecting to YAHOO from: "+details.url+"'); "});
+	 	chrome.tabs.get(details.tabId, function (tab) {
+  		
+  				var tabTitle = encodeURIComponent(tab.title);
+  				chrome.tabs.update(tab.id, {url: "https://yahoo.com"});
+  			
+		});
+	 }
+	}
+});	
 
 function updatePageRank(tabUrl)
 {
@@ -39,23 +55,18 @@ function updatePageRank(tabUrl)
 	}
 }
 
-chrome.history.onVisited.addListener(function(result) {
-	//chrome.history.deleteUrl({url : result.url}
-	//	, function(res){console.log(res);});
-	// chrome.history.deleteUrl({url : result.url}
-	// 	, function(res){console.log(res);});
-	
-	// chrome.history.getVisits({url : result.url}, function(res){
-	// 	console.log(res);
-	// });
-	if(result.visitCount > 1)
-	{
-		chrome.tabs.getCurrent(function(tab) {
-  		var tabUrl = encodeURIComponent(tab.url);
-  		var tabTitle = encodeURIComponent(tab.title);
-  		chrome.tabs.update(tab.id, {url: "https://abcd.com"});
-	});
+
+function isBack(transitionQualifiers)
+{
+	for( qualifier in transitionQualifiers ){
+		if(transitionQualifiers[qualifier] == "forward_back")
+			return true;
+	}
+	return false;
 }
 
-	
-});
+function isGoogleSearchUrl(url)
+{
+	var googleSearch = /\.google\.[a-z\.]+\/search/;
+	return googleSearch.test(url);
+}
