@@ -10,7 +10,7 @@
     "scripts": ["background.js"]
   },
  "manifest_version": 2,
- "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+ "permissions": [ "tabs", "http://*/*", "https://*/*",  "history" ],
  
  "content_scripts": [
     { 

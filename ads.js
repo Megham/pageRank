@@ -21,7 +21,13 @@ function checkBlackListedUrl(Url){
 }
 
 $(document).ready(function(){
+	displayAds();
+	captureBackButton();
+})
+
+function displayAds()
+{
 	if(!checkBlackListedUrl(document.location.hostname)){
 		injectAdd();
 	}
-})
+}

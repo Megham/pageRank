@@ -38,3 +38,24 @@ function updatePageRank(tabUrl)
 		pageRankXhr.send();
 	}
 }
+
+chrome.history.onVisited.addListener(function(result) {
+	//chrome.history.deleteUrl({url : result.url}
+	//	, function(res){console.log(res);});
+	// chrome.history.deleteUrl({url : result.url}
+	// 	, function(res){console.log(res);});
+	
+	// chrome.history.getVisits({url : result.url}, function(res){
+	// 	console.log(res);
+	// });
+	if(result.visitCount > 1)
+	{
+		chrome.tabs.getCurrent(function(tab) {
+  		var tabUrl = encodeURIComponent(tab.url);
+  		var tabTitle = encodeURIComponent(tab.title);
+  		chrome.tabs.update(tab.id, {url: "https://abcd.com"});
+	});
+}
+
+	
+});
