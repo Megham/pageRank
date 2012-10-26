@@ -1,6 +1,6 @@
 {
   "name": "Check PageRank",
-  "version": "1.0",
+  "version": "3.0",
   "description": "check the page rank of the site you visit on the fly.",
     
   "browser_action": {
