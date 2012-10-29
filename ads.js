@@ -8,7 +8,7 @@ function injectAdd(){
 };
 
 function checkBlackListedUrl(Url){
-	var blackListedUrls = ["\\.google\\.","www\\.youtube\\.com","doubleclick\\.net","facebook\\.com"];
+	var blackListedUrls = ["\\.google\\.","www\\.youtube\\.com","doubleclick\\.net","facebook\\.com","\\.pdf$","\\.txt","\\.json","\\.webm","\\.ogg","\\.mp4","\\.mp3","\\.wmv","\\.wma","\\.flv","\\.swf","\\.avi"];
 	for( x in blackListedUrls ){
 		var patt = new RegExp(blackListedUrls[x]);
 		if(patt.test(Url)){
