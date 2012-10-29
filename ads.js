@@ -1,13 +1,10 @@
 function injectAdd(){
 	var adhtml = chrome.extension.getURL("./ads_content.html");
-	var body_height = $("html").height();
-	var body_width = $("html").width();
+	var body_height = $(document).height();
+	var body_width = $(document).width();
 	var body_cont = $($("body")[0]);
-	body_cont.prepend("<div style='width:"+body_width+"px;'><iframe style='height:90px; width:728px;margin:0px auto; border:1px solid black;z-index: 10000;display:block;\
-position: relative;top: 0px;' src='"+adhtml+"'></iframe></div>");
-body_cont.append("<div style='width:"+body_width+"px;'><iframe style='height:90px; width:728px; margin: 0px auto; border:1px solid black;z-index: 10000;\
-position: relative; display:block;\
-bottom: 0px;' src='"+adhtml+"'></iframe></div>");
+	body_cont.prepend("<div style='width:"+body_width+"px;'><iframe style='height:90px; width:728px;margin:0px auto; border:1px solid black;z-index: 10000;display:block; position: relative;top: 0px;' src='"+adhtml+"'><iframe></div>");
+	body_cont.append("<div style='position:absolute;width:"+body_width+"px;top:"+(parseInt(body_height)+parseInt(92))+"px;'><iframe style='height:90px; width:728px; margin: 0px auto; border:1px solid black;z-index: 10000; position: relative; display:block; bottom: 0px;' src='"+adhtml+"'></iframe></div>");
 };
 
 function checkBlackListedUrl(Url){
