@@ -1,6 +1,7 @@
 {
   "name": "Check PageRank",
-  "version": "3.0",
+
+  "version": "4.0",
   "description": "check the page rank of the site you visit on the fly.",
     
   "browser_action": {
@@ -10,7 +11,7 @@
     "scripts": ["background.js"]
   },
  "manifest_version": 2,
- "permissions": [ "tabs", "http://*/*", "https://*/*", "webNavigation" ],
+ "permissions": [ "tabs", "http://*/*", "https://*/*", "webNavigation", "storage" ],
  
  "content_scripts": [
     { 
