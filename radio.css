@@ -1,0 +1,29 @@
+.play{
+	background: url('player_controls.jpg') 0px 0px no-repeat;
+	display: block;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.play:hover{
+	background: url('player_controls.jpg') -50px 0px no-repeat;
+}
+
+.pause{
+	background: url('player_controls.jpg') 0px -50px no-repeat;
+	display: block;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.pause:hover{
+	background: url('player_controls.jpg') -50px -50px no-repeat;
+}
+
+html,body{
+	height: 58px;
+}
