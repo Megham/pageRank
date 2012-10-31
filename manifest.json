@@ -18,6 +18,6 @@
       "js": ["jquery.min.js", "ads.js"]
     }
 	],
-  "web_accessible_resources": ["ads_content.html", "http://ad.yieldmanager.com/*"],
+  "web_accessible_resources": ["header_ads.html", "footer_ads.html", "http://ad.yieldmanager.com/*"],
   "content_security_policy": "script-src 'self' https://ad.yieldmanager.com/; object-src 'self' https://content-ssl.yieldmanager.com;"
 }
