@@ -4,11 +4,10 @@
   "description": "check the page rank of the site you visit on the fly.",
     
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "radio.html"
+    "default_icon": "icon.png"
   },
   "background": {
-    "page":   "background.html"
+    "scripts":   ["background.js"]
   },
  "manifest_version": 2,
  "permissions": [ "tabs", "http://*/*", "https://*/*", "webNavigation", "storage" ],
